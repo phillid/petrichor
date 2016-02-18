@@ -4,4 +4,3 @@ version=1.0
 description=Petrichor Theme
 engine=lightdm-webkit2-greeter
 url=index.html
-session=dwm
