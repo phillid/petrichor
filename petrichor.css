@@ -1,0 +1,134 @@
+html
+{
+	color: #FFF;
+	background-image: url('bg.jpg');
+	background-size: cover;
+	font-family: "Roboto Condensed";
+}
+
+body,html
+{
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+#shutdown
+{
+	cursor: pointer;
+	opacity: 0.5;
+	width: 96px;
+	position: absolute;
+	right: 50px;
+	bottom: 50px;
+	transition: opacity ease 0.3s;
+}
+
+.error-icon
+{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #F00;
+}
+
+#shutdown:hover
+{
+	opacity: 1;
+}
+
+#users div.user
+{
+	transition: opacity ease 0.15s;
+}
+
+div.user
+{
+	text-align: center;
+	color: white;
+	margin-top: 2em;
+}
+
+.avatar
+{
+	object-fit: cover;
+	width: 96px;
+	height: 96px;
+	border-radius: 48px;
+}
+
+.name
+{
+	display: block;
+}
+
+#password_prompt, #password_entry
+{
+	display: block;
+	font-size: 20px;
+}
+
+#users
+{
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
+}
+
+#message_container
+{
+	font-size: 20px;
+}
+
+#password_entry
+{
+	color: #333;
+	opacity: inherit;
+	background-color: rgba(255,255,255,255,0.2);
+	padding: 0.2em;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+}
+
+#message_container, #password_container
+{
+	height: 96px;
+	display: table;
+	position: absolute;
+	padding-left: 2em;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+}
+
+#password_container.shown, #message_container.shown
+{
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.15s linear 0.05s;
+}
+
+#message_label, #password_container > form
+{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#date, #time
+{
+	font-family: Roboto;
+	text-align: right;
+	color: #FFF;
+}
+
+#date
+{
+	margin-top: 50px;
+	margin-right: 65px;
+	font-size: 50px;
+}
+
+#time
+{
+	margin-right: 30px;
+	font-size: 240px;
+}
