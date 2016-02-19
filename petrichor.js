@@ -133,13 +133,13 @@ function start()
 			else
 				image = user.image;
 
-			document.write('<a href="#" class="user" id="user_' + user.name +'"onclick="start_authentication(\'' + user.name + '\')" style="cursor: pointer;">');
+			document.write('<a href="#" class="user" id="user_' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
 			document.write('<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>');
 
 			if (user.name == lightdm.autologin_user && lightdm.autologin_timeout > 0)
 				document.write('<span id="countdown_label"></span>');
 
-			document.write('	</div>');
+			document.write('</a>');
 		}
 		document.write('</div>');
 
