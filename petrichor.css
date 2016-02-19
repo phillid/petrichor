@@ -132,3 +132,10 @@ div.user
 	margin-right: 30px;
 	font-size: 240px;
 }
+
+a
+{
+  text-decoration: none;
+  display: block;
+  color: white;
+}
