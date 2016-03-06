@@ -15,12 +15,12 @@ body,html
 
 #shutdown
 {
-	cursor: pointer;
-	opacity: 0.5;
-	width: 96px;
 	position: absolute;
 	right: 50px;
 	bottom: 50px;
+	cursor: pointer;
+	opacity: 0.5;
+	width: 96px;
 	transition: opacity ease 0.3s;
 }
 
@@ -85,7 +85,7 @@ a.user
 {
 	color: #333;
 	opacity: inherit;
-	background-color: rgba(255,255,255,255,0.2);
+	background-color: #FFF;
 	padding: 0.2em;
 	border: 1px solid #DDD;
 	border-radius: 5px;
@@ -133,4 +133,19 @@ a.user
 {
 	margin-right: 30px;
 	font-size: 240px;
+}
+
+#session_list
+{
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	padding: 0.2em;
+	color: #333;
+	padding-right: 2em;
+	background: url('drop-down.svg') no-repeat right #FFF;
+	-webkit-appearance: none;
+	-moz-appearance: none; /* only for when testing */
 }

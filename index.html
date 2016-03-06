@@ -6,7 +6,7 @@
 			start();
 		</script>
 	</head>
-	<body onclick="reset();" onload="update_time();">
+	<body onclick="reset();" onload="load();">
 		<div id="date-container">
 			<div id="date"></div>
 			<div id="time"></div>
@@ -20,6 +20,7 @@
 		<div id="message_container">
 			<span id="message_label"></span>
 		</div>
+		<select id="session_list"></select>
 		<img id="shutdown" src="iec5009.svg" onclick="lightdm.shutdown();" />
 	</body>
 </html>

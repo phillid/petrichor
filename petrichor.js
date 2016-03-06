@@ -66,8 +66,10 @@ function reset()
 
 function authentication_complete()
 {
+	sel = document.getElementById('session_list');
+	session = sel.options[sel.selectedIndex].getAttribute('data-sid');
 	if (lightdm.is_authenticated)
-		lightdm.start_session_sync(lightdm.authentication_user, lightdm.default_session);
+		lightdm.start_session_sync(lightdm.authentication_user, session);
 	else
 		show_message('<span class="error-icon">&#x26A0;</span> Authentication Failed');
 
@@ -104,6 +106,16 @@ function countdown()
 		setTimeout('countdown()', 1000);
 }
 
+function build_session_list()
+{
+	slist = document.getElementById('session_list');
+	slist.innerHTML = "";
+	for (session of lightdm.sessions)
+	{
+		slist.innerHTML += "<option data-sid="+session.key+">"+session.name+"</option>";
+	}
+}
+
 function update_time()
 {
 	var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -123,28 +135,33 @@ function update_time()
 
 function start()
 {
-		document.write('<div id="users">');
-		for (i in lightdm.users)
-		{
-			user = lightdm.users[i];
+	document.write('<div id="users">');
+	for (i in lightdm.users)
+	{
+		user = lightdm.users[i];
 
-			if (user.image.match(/\.face$/))
-				image = '/usr/share/icons/Adwaita/256x256/emotes/face-laugh.png';
-			else
-				image = user.image;
+		if (user.image.match(/\.face$/))
+			image = '/usr/share/icons/Adwaita/256x256/emotes/face-laugh.png';
+		else
+			image = user.image;
 
-			document.write('<a href="#" class="user" id="user_' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
-			document.write('<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>');
+		document.write('<a href="#" class="user" id="user_' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
+		document.write('<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>');
 
-			if (user.name == lightdm.autologin_user && lightdm.autologin_timeout > 0)
-				document.write('<span id="countdown_label"></span>');
+		if (user.name == lightdm.autologin_user && lightdm.autologin_timeout > 0)
+			document.write('<span id="countdown_label"></span>');
 
-			document.write('</a>');
-		}
-		document.write('</div>');
+		document.write('</a>');
+	}
+	document.write('</div>');
 
+	time_remaining = lightdm.autologin_timeout;
+	if (time_remaining > 0)
+		countdown();
+}
 
-		time_remaining = lightdm.autologin_timeout;
-		if (time_remaining > 0)
-			countdown();
+function load()
+{
+	update_time();
+	build_session_list();
 }
