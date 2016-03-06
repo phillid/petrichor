@@ -13,6 +13,11 @@ body,html
 	width: 100%;
 }
 
+.ease_opacity
+{
+	transition: opacity ease 0.3s;
+}
+
 #shutdown
 {
 	position: absolute;
@@ -21,7 +26,6 @@ body,html
 	cursor: pointer;
 	opacity: 0.5;
 	width: 96px;
-	transition: opacity ease 0.3s;
 }
 
 .error-icon
@@ -137,6 +141,7 @@ a.user
 
 #session_list
 {
+	font-family: inherit;
 	position: absolute;
 	top: 50px;
 	left: 50px;
@@ -144,8 +149,14 @@ a.user
 	border-radius: 5px;
 	padding: 0.2em;
 	color: #333;
+	opacity: 0.5;
 	padding-right: 2em;
 	background: url('drop-down.svg') no-repeat right #FFF;
 	-webkit-appearance: none;
 	-moz-appearance: none; /* only for when testing */
+}
+
+#session_list:hover
+{
+	opacity: 1;
 }
