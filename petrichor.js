@@ -5,23 +5,23 @@ time_remaining = 0
 function show_prompt(text, type)
 {
 	password_prompt = true;
-	label = document.getElementById('password_label');
+	label = document.getElementById('password-label');
 	label.innerHTML = text;
 
 	users = document.getElementById('users');
 	for (i in users.children)
 	{
 		user = users.children[i];
-		if (user.id != ('user_' + selected_user) && user.style != null)
+		if (user.id != ('user-' + selected_user) && user.style != null)
 			user.style.opacity = 0.1;
 	}
 
-	entry = document.getElementById('password_entry');
+	entry = document.getElementById('password-entry');
 	entry.value = '';
 
-	var selected = document.getElementById("user_" + selected_user);
+	var selected = document.getElementById("user-" + selected_user);
 	rect = selected.getBoundingClientRect();
-	cont = document.getElementById('password_container');
+	cont = document.getElementById('password-container');
 
 	cont.style.top = rect.top;
 	if (cont.style.left != rect.right)
@@ -33,12 +33,12 @@ function show_prompt(text, type)
 
 function show_message(text, type)
 {
-	cont = document.getElementById('message_container');
-	document.getElementById('message_label').innerHTML = text;
+	cont = document.getElementById('message-container');
+	document.getElementById('message-label').innerHTML = text;
 
 	if (text.length > 0)
 	{
-		var selected = document.getElementById("user_" + selected_user);
+		var selected = document.getElementById("user-" + selected_user);
 		rect = selected.getBoundingClientRect();
 
 		cont.style.top = rect.top;
@@ -60,13 +60,13 @@ function reset()
 		if (child.style != null)
 			child.style.opacity = 1;
 	}
-	document.getElementById('password_container').classList.remove("shown");
+	document.getElementById('password-container').classList.remove("shown");
 	password_prompt = false;
 }
 
 function authentication_complete()
 {
-	sel = document.getElementById('session_list');
+	sel = document.getElementById('session-list');
 	session = sel.options[sel.selectedIndex].getAttribute('data-sid');
 	if (lightdm.is_authenticated)
 		lightdm.start_session_sync(lightdm.authentication_user, session);
@@ -78,7 +78,7 @@ function authentication_complete()
 
 function start_authentication(username)
 {
-	document.getElementById('message_container').classList.remove("shown");
+	document.getElementById('message-container').classList.remove("shown");
 
 	if (!password_prompt) {
 		selected_user = username;
@@ -88,7 +88,7 @@ function start_authentication(username)
 
 function provide_secret()
 {
-	entry = document.getElementById('password_entry');
+	entry = document.getElementById('password-entry');
 	lightdm.respond(entry.value);
 }
 
@@ -99,7 +99,7 @@ function autologin_timer_expired(username)
 
 function countdown()
 {
-	label = document.getElementById('countdown_label');
+	label = document.getElementById('countdown-label');
 	label.innerHTML = ' in ' + time_remaining + ' seconds';
 	time_remaining--;
 	if (time_remaining >= 0)
@@ -108,7 +108,7 @@ function countdown()
 
 function build_session_list()
 {
-	slist = document.getElementById('session_list');
+	slist = document.getElementById('session-list');
 	slist.innerHTML = "";
 	for (session of lightdm.sessions)
 	{
@@ -145,11 +145,11 @@ function start()
 		else
 			image = user.image;
 
-		document.write('<a href="#" class="user" id="user_' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
+		document.write('<a href="#" class="user" id="user-' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
 		document.write('<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>');
 
 		if (user.name == lightdm.autologin_user && lightdm.autologin_timeout > 0)
-			document.write('<span id="countdown_label"></span>');
+			document.write('<span id="countdown-label"></span>');
 
 		document.write('</a>');
 	}
