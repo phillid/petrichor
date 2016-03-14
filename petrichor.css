@@ -20,36 +20,40 @@ body,html
 
 #mask
 {
+	text-align: center;
 	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.7);
 	visibility: hidden;
 	opacity: 0;
 }
 
 #power-confirm
 {
-	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
-	text-align: center;
-	height: 150px;
-	margin-top: -75px;
-	width: 100%;
 	position: absolute;
-	left: 0;
-	top: 50%;
+	left: 50%;
+	bottom: 50px;
 	visibility: hidden;
 	opacity: 0;
 }
 
+#power-confirm > ul
+{
+	display: inline-block;
+	margin: 0px 0px 0px -50%;
+}
+
 #power-confirm li
 {
+	text-align: center;
 	list-style: none;
 	display: inline-block;
-	margin: 2em;
+	margin-left: 2em;
+	margin-right: 2em;
 }
 
 #power-confirm li a
