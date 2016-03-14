@@ -1,6 +1,6 @@
 [theme]
 name=Petrichor
-version=1.0
+version={VERSION}
 description=Petrichor Theme
 engine=lightdm-webkit2-greeter
 url=index.html
