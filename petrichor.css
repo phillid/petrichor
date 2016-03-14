@@ -1,7 +1,7 @@
 html
 {
 	color: #FFF;
-	background-image: url('bg.jpg');
+	background-image: url('image/bg.jpg');
 	background-size: cover;
 	font-family: "Roboto Condensed";
 }
@@ -220,7 +220,7 @@ a.user
 	color: #333;
 	opacity: 0.5;
 	padding-right: 2em;
-	background: url('drop-down.svg') no-repeat right #FFF;
+	background: url('image/drop-down.svg') no-repeat right #FFF;
 	-webkit-appearance: none;
 	-moz-appearance: none; /* only for when testing */
 }
