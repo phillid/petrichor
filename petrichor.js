@@ -2,6 +2,16 @@ password_prompt = false;
 selected_user = null;
 time_remaining = 0
 
+function show_element(id)
+{
+	document.getElementById(id).classList.add("shown");
+}
+
+function hide_element(id)
+{
+	document.getElementById(id).classList.remove("shown");
+}
+
 function show_prompt(text, type)
 {
 	password_prompt = true;

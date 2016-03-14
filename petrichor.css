@@ -18,6 +18,71 @@ body,html
 	transition: opacity ease 0.3s;
 }
 
+#mask
+{
+	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+}
+
+#power-confirm
+{
+	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+	text-align: center;
+	height: 150px;
+	margin-top: -75px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	visibility: hidden;
+	opacity: 0;
+}
+
+#power-confirm li
+{
+	list-style: none;
+	display: inline-block;
+	margin: 2em;
+}
+
+#power-confirm li a
+{
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.5em;
+	display: inline-block;
+}
+
+#power-confirm li div
+{
+	display: block;
+	height: 96px;
+	width: 96px;
+	border-radius: 48px;
+}
+
+#icon-shutdown
+{
+	background: url('shutdown.png') #C33;
+}
+
+#icon-reboot
+{
+	background: url('reboot.png') #33C;
+}
+
+#icon-cancel
+{
+	background: url('cancel.png') #3C3;
+}
+
 #shutdown
 {
 	position: absolute;
@@ -106,7 +171,7 @@ a.user
 	transition: visibility 0s linear 0.15s, opacity 0.15s linear;
 }
 
-#password-container.shown, #message-container.shown
+#password-container.shown, #message-container.shown, #mask.shown, #power-confirm.shown
 {
 	visibility: visible;
 	opacity: 1;
