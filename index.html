@@ -20,7 +20,30 @@
 		<div id="message-container">
 			<span id="message-label"></span>
 		</div>
+		<a id="mask" href="#" onclick="hide_element('power-confirm');hide_element('mask');"></a>
+		<div id="power-confirm" onclick="document.getElementById('mask').click();">
+			<ul>
+				<li>
+					<a class="button" href="#" onclick="lightdm.shutdown();">
+						<div class="icon" id="icon-shutdown"></div>
+						<span>Power off</span>
+					</a>
+				</li>
+				<li>
+					<a class="button" href="#" onclick="lightdm.restart();">
+						<div class="icon" id="icon-reboot"></div>
+						<span>Restart</span>
+					</a>
+				</li>
+				<li>
+					<a class="button" href="#" onclick="hide_element('power-confirm');hide_element('mask');">
+						<div class="icon" id="icon-cancel"></div>
+						<span>Cancel</span>
+					</a>
+				</li>
+			</ul>
+		</div>
 		<select id="session-list" class="ease-opacity"></select>
-		<img id="shutdown" class="ease-opacity" src="iec5009.svg" onclick="lightdm.shutdown();" />
+		<img id="shutdown" class="ease-opacity" src="iec5009.svg" onclick="show_element('power-confirm');show_element('mask');" />
 	</body>
 </html>
