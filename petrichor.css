@@ -74,17 +74,17 @@ body,html
 
 #icon-shutdown
 {
-	background: url('shutdown.png') #C33;
+	background: url('image/shutdown.png') #C33;
 }
 
 #icon-reboot
 {
-	background: url('reboot.png') #33C;
+	background: url('image/reboot.png') #33C;
 }
 
 #icon-cancel
 {
-	background: url('cancel.png') #3C3;
+	background: url('image/cancel.png') #3C3;
 }
 
 #shutdown
