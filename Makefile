@@ -1,5 +1,7 @@
 PREFIX=/usr/
 DESTDIR=
+VERSION=1.0
+
 
 THEME_FILES=\
 	index.html \
@@ -10,8 +12,9 @@ THEME_FILES=\
 	iec5009.svg \
 	drop-down.svg
 
-all:
+.PHONY: all install
 
+all: $(THEME_FILES)
 
 install:
 	for f in $(THEME_FILES) ; do \
@@ -19,3 +22,8 @@ install:
 	done
 	install -Dm 644 LICENSE "$(DESTDIR)/$(PREFIX)/share/licenses/petrichor/LICENSE"
 
+clean:
+	rm index.theme
+
+index.theme: index.theme.in
+	sed -e 's/{VERSION}/$(VERSION)/g' $^ > $@
