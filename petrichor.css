@@ -30,6 +30,19 @@ body,html
 	background-color: rgba(0,0,0,0.7);
 	visibility: hidden;
 	opacity: 0;
+	text-decoration: none;
+	color: inherit;
+	font-size: 3em;
+	display: table;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+}
+
+#mask h1
+{
+	display: table-cell;
+	vertical-align: middle;
 }
 
 #power-confirm
