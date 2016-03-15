@@ -45,6 +45,7 @@ body,html
 {
 	display: inline-block;
 	margin: 0px 0px 0px -50%;
+	padding: 0px;
 }
 
 #power-confirm li
