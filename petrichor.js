@@ -150,7 +150,7 @@ function start()
 	{
 		user = lightdm.users[i];
 
-		if (user.image.match(/\.face$/))
+		if (user.image == null || user.image.match(/\.face$/))
 			image = '/usr/share/icons/Adwaita/256x256/emotes/face-laugh.png';
 		else
 			image = user.image;
