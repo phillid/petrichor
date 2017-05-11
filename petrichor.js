@@ -174,4 +174,18 @@ function load()
 {
 	update_time();
 	build_session_list();
+	start();
 }
+
+/* Temporary hack until webkit greeter 3.
+ * The fact this is needed frankly makes me shudder. */
+function try_load()
+{
+	if (typeof lightdm !== 'undefined') {
+		load();
+	} else {
+		setTimeout(try_load, 500);
+	}
+}
+
+window.onload = try_load;
