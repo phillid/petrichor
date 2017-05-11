@@ -1,6 +1,6 @@
 password_prompt = false;
 selected_user = null;
-time_remaining = 0
+time_remaining = 0;
 
 function show_element(id)
 {
