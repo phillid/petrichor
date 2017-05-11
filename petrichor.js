@@ -145,7 +145,7 @@ function update_time()
 
 function start()
 {
-	document.write('<div id="users">');
+	var html = "";
 	for (i in lightdm.users)
 	{
 		user = lightdm.users[i];
@@ -155,15 +155,16 @@ function start()
 		else
 			image = user.image;
 
-		document.write('<a href="#" class="user" id="user-' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">');
-		document.write('<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>');
+		html += '<a href="#" class="user" id="user-' + user.name +'" onclick="start_authentication(\'' + user.name + '\')">';
+		html += '<img class="avatar" src="file:///' + image + '" /><span class="name">'+user.display_name+'</span>';
 
 		if (user.name == lightdm.autologin_user && lightdm.autologin_timeout > 0)
-			document.write('<span id="countdown-label"></span>');
+			html += '<span id="countdown-label"></span>';
 
-		document.write('</a>');
+		html += '</a>';
 	}
-	document.write('</div>');
+
+	document.getElementById('users').innerHTML = html;
 
 	time_remaining = lightdm.autologin_timeout;
 	if (time_remaining > 0)
