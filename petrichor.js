@@ -113,7 +113,7 @@ function countdown()
 	label.innerHTML = ' in ' + time_remaining + ' seconds';
 	time_remaining--;
 	if (time_remaining >= 0)
-		setTimeout('countdown()', 1000);
+		setTimeout(countdown, 1000);
 }
 
 function build_session_list()
@@ -140,7 +140,7 @@ function update_time()
 		niceMinutes = "0"+niceMinutes;
 	document.getElementById('date').innerHTML = days[d.getDay()] + ", " + d.getDate() + " " + months[d.getMonth()];
 	document.getElementById('time').innerHTML = niceHours + ":" + niceMinutes;
-	setTimeout('update_time()', 1000);
+	setTimeout(update_time, 1000);
 }
 
 function start()
